@@ -1,0 +1,237 @@
+<?xml version="1.0"?><!--*- mode: nxml; indent-tabs-mode: nil -*-->
+<!DOCTYPE moduleset SYSTEM "moduleset.dtd">
+<?xml-stylesheet type="text/xsl" href="moduleset.xsl"?>
+<!-- vim:set ts=2 expandtab: -->
+<moduleset>
+
+<!-- repos -->
+
+  <!-- Github git -->
+  <repository type="git" name="github.com"
+      href="https://github.com/"/>
+
+
+<!-- modules -->
+
+<!-- CORE -->
+  <metamodule id="meta-eos-core">
+    <dependencies>
+      <dep package="eos-shell"/>
+      <dep package="eos-shell-content"/>
+      <dep package="eos-app-store"/>
+      <dep package="eos-social"/>
+      <dep package="eos-file-manager"/>
+      <dep package="eos-metrics"/>
+      <dep package="eos-theme"/>
+      <dep package="eos-sdk"/>
+    </dependencies>
+  </metamodule>
+
+  <autotools id="eos-app-store">
+    <branch repo="github.com" module="endlessm/eos-app-store.git"
+            revision="dev"/>
+    <dependencies>
+      <dep package="eos-sdk"/>
+      <dep package="pstack"/>
+    </dependencies>
+  </autotools>
+
+  <autotools id="eos-social">
+    <branch repo="github.com" module="endlessm/eos-social.git"
+            revision="dev"/>
+    <dependencies>
+      <dep package="eos-sdk"/>
+      <dep package="libwnck"/>
+    </dependencies>
+  </autotools>
+
+  <autotools id="eos-file-manager">
+    <branch repo="github.com" module="endlessm/eos-file-manager.git"
+            revision="dev"/>
+  </autotools>
+
+  <!-- soon we should be able to take this out -->
+  <autotools id="pstack">
+    <branch repo="github.com" module="endlessm/pstack.git"
+            revision="dev"/>
+  </autotools>
+
+  <autotools id="eos-theme">
+    <branch repo="github.com" module="endlessm/eos-theme.git"
+            revision="dev"/>
+  </autotools>
+
+  <autotools id="eos-sdk">
+    <branch repo="github.com" module="endlessm/eos-sdk.git"
+            revision="dev"/>
+  </autotools>
+
+  <autotools id="eos-shell-content">
+    <branch repo="github.com" module="endlessm/eos-shell-content.git"
+            revision="dev"/>
+  </autotools>
+
+  <autotools id="eos-metrics">
+    <branch repo="github.com" module="endlessm/eos-metrics.git"
+            revision="dev"/>
+  </autotools>
+
+  <autotools id="eos-shell">
+    <branch repo="github.com" module="endlessm/eos-shell.git"
+            revision="dev"/>
+    <dependencies>
+      <dep package="accountsservice"/>
+      <dep package="caribou"/>
+      <dep package="dconf"/>
+      <dep package="evolution-data-server"/>
+      <dep package="gdm"/> <!-- runtime dependency on Gdm-1.0.typelib-->
+      <dep package="gjs"/>
+      <dep package="glib"/>
+      <dep package="gnome-bluetooth"/>
+      <dep package="gnome-desktop"/>
+      <dep package="gnome-icon-theme"/>
+      <dep package="gnome-icon-theme-symbolic"/>
+      <dep package="gnome-menus"/>
+      <dep package="gnome-settings-daemon"/>
+      <dep package="gobject-introspection"/>
+      <dep package="gtk+"/>
+      <dep package="intltool"/>
+      <dep package="libcanberra"/>
+      <dep package="libcroco"/>
+      <dep package="libsoup"/>
+      <dep package="mutter"/>
+      <dep package="NetworkManager"/>
+      <dep package="network-manager-applet"/>
+      <dep package="polkit"/>
+      <dep package="pulseaudio"/>
+      <dep package="startup-notification"/>
+      <dep package="telepathy-glib"/>
+      <dep package="telepathy-logger"/>
+      <dep package="upower"/>
+      <dep package="eos-shell-content"/>
+      <dep package="gcr"/>
+    </dependencies>
+    <suggests>
+      <dep package="gstreamer"/>
+      <dep package="gst-plugins-base"/>
+    </suggests>
+    <after>
+      <dep package="librsvg"/>
+    </after>
+  </autotools>
+
+<!-- APPS -->
+  <metamodule id="meta-eos-apps">
+    <dependencies>
+      <dep package="eos-wikipedia"/>
+      <dep package="eos-wikipedia-apps"/>
+      <dep package="eos-wikipedia-offline"/>
+      <dep package="eos-weather"/>
+      <dep package="eos-photos"/>
+      <dep package="eos-programming-app"/>
+      <dep package="eos-english"/>
+      <dep package="eos-youtube-gjs"/>
+      <dep package="eos-typing"/>
+      <dep package="eos-translation"/>
+      <dep package="eos-resume-app"/>
+    </dependencies>
+  </metamodule>
+
+  <autotools id="eos-wikipedia">
+    <branch repo="github.com" module="endlessm/eos-wikipedia.git"
+            revision="dev"/>
+    <dependencies>
+      <dep package="eos-sdk"/>
+    </dependencies>
+  </autotools>
+
+  <autotools id="eos-wikipedia-apps">
+    <branch repo="github.com" module="endlessm/eos-wikipedia-apps.git"
+            revision="dev"/>
+    <dependencies>
+      <dep package="eos-sdk"/>
+    </dependencies>
+  </autotools>
+
+  <autotools id="eos-wikipedia-offline" skip-autogen="true" makeargs="-v" skip-install="true">
+    <branch repo="github.com" module="endlessm/eos-wikipedia-offline.git"
+            revision="dev"/>
+    <dependencies>
+      <dep package="eos-sdk"/>
+    </dependencies>
+  </autotools>
+
+  <autotools id="eos-weather">
+    <branch repo="github.com" module="endlessm/eos-weather.git"
+            revision="dev"/>
+    <dependencies>
+      <dep package="eos-sdk"/>
+    </dependencies>
+  </autotools>
+
+  <autotools id="eos-youtube-gjs">
+    <branch repo="github.com" module="endlessm/eos-youtube-gjs.git"
+            revision="dev"/>
+    <dependencies>
+      <dep package="eos-sdk"/>
+    </dependencies>
+  </autotools>
+
+  <!-- Has no autotools, so for now we have a hack to skip it but still download the repo -->
+  <autotools id="eos-translation" skip-autogen="true" makeargs="-v" skip-install="true">
+    <branch repo="github.com" module="endlessm/eos-translation.git"
+            revision="dev"/>
+    <dependencies>
+      <dep package="eos-sdk"/>
+    </dependencies>
+  </autotools>
+
+  <autotools id="eos-programming-app">
+    <branch repo="github.com" module="endlessm/eos-programming-app.git"
+            revision="dev"/>
+    <dependencies>
+      <dep package="eos-sdk"/>
+      <dep package="gtksourceview"/>
+    </dependencies>
+  </autotools>
+
+  <!-- Has no autotools, so for now we have a hack to skip it but still download the repo -->
+  <autotools id="eos-photos" skip-autogen="true" makeargs="-v" skip-install="true">
+    <branch repo="github.com" module="endlessm/eos-photos.git"
+            revision="dev"/>
+    <dependencies>
+      <dep package="eos-sdk"/>
+    </dependencies>
+  </autotools>
+
+  <autotools id="eos-english">
+    <branch repo="github.com" module="endlessm/eos-english.git"
+            revision="dev"/>
+    <dependencies>
+      <dep package="eos-sdk"/>
+    </dependencies>
+  </autotools>
+
+  <autotools id="eos-typing">
+    <branch repo="github.com" module="endlessm/eos-typing.git"
+            revision="dev"/>
+    <dependencies>
+      <dep package="eos-sdk"/>
+    </dependencies>
+  </autotools>
+
+  <autotools id="eos-resume-app" skip-autogen="true" makeargs="-v" skip-install="true">
+    <branch repo="github.com" module="endlessm/eos-resume-app.git"
+            revision="dev"/>
+    <dependencies>
+      <dep package="eos-sdk"/>
+    </dependencies>
+  </autotools>
+
+<!-- MISC -->
+  <autotools id="eos-obs-build" skip-autogen="true" makeargs="-v" skip-install="true">
+    <branch repo="github.com" module="endlessm/eos-obs-build.git"
+            revision="dev"/>
+  </autotools>
+
+</moduleset>

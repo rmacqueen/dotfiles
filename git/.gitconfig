@@ -1,0 +1,31 @@
+[user]
+	name = Matt Watson
+	email = mattdangerw@gmail.com
+[core]
+	editor = subl -w
+	excludesfile = ~/.gitignore
+[color]
+	status = auto
+	commit = auto
+	diff = auto
+	branch = auto
+[credential]
+	helper = cache --timeout=28800
+[push]
+	default = simple
+[alias]
+  s = status
+  d = diff
+  br = branch
+  ch = checkout
+  co = commit
+  re = rebase
+  rd = rebase -i dev
+  dd = diff dev
+  lp = log --graph --pretty=oneline --abbrev-commit --color
+  pub = push --set-upstream origin HEAD
+  publish = push --set-upstream origin HEAD
+  ca = commit --amend
+  cf = commit --amend --no-edit
+[hub]
+	protocol = https

@@ -7,7 +7,7 @@
 moduleset = ['gnome-apps-3.10', os.path.expanduser('~/eos.modules')]
 #
 # A list of the modules to build.  Defaults to the GNOME core and tested apps.
-modules = ['meta-gnome-core-shell', 'meta-eos-core', 'meta-eos-apps', 'eos-obs-build', 'devhelp']
+modules = ['meta-gnome-core-shell', 'meta-eos-core', 'meta-eos-apps', 'eos-obs-build', 'devhelp', 'sushi']
 
 skip = ['WebKit']
 
@@ -39,6 +39,9 @@ module_autogenargs['clutter-gtk'] = '--enable-debug=yes --enable-gtk-doc'
 
 module_autogenargs['eos-sdk'] = '--enable-gtk-doc --enable-gir-doc --enable-strict-flags --enable-js-doc'
 module_autogenargs['eos-metrics'] = '--enable-gtk-doc --enable-strict-flags'
+module_autogenargs['gstreamer'] = '--enable-gtk-doc'
+module_autogenargs['evince'] = '--enable-gtk-doc'
+module_autogenargs['clutter-gst'] = '--enable-gtk-doc'
 
 # custom CFLAGS / environment pieces for the build
 os.environ['CFLAGS'] = '-g -O0'

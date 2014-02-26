@@ -196,7 +196,7 @@
   </autotools>
 
   <!-- Has no autotools, so for now we have a hack to skip it but still download the repo -->
-  <autotools id="eos-photos" skip-autogen="true" makeargs="-v" skip-install="true">
+  <autotools id="eos-photos">
     <branch repo="github.com" module="endlessm/eos-photos.git"
             revision="dev"/>
     <dependencies>

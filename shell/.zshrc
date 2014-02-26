@@ -66,13 +66,18 @@ alias sl='sl'
 # alias sudo='sudo '
 
 function say() {
-    cowsay -f head-in -e "><" "$@" | cowthink -n -f dragon-and-cow -e "OO" | cowthink -n -s -f bong
+    if which cowsay >/dev/null; then
+        cowsay -f head-in -e "><" "$@" | cowthink -n -f dragon-and-cow -e "OO" | cowthink -n -s -f bong
+    else
+        echo $@
+    fi
 }
 
 alias lol='say lol'
 alias bored='say chin up, man'
 alias yo='say yo-yo'
 alias hey='say oh hai'
+alias fart='say pffttbbttbt'
 
 # apt crap
 alias install='sudo apt-get install'
@@ -89,7 +94,7 @@ alias .....='cd ../../../..'
 
 alias size='du -sh'
 
-alias shutdown='sudo shutdown -h now'
+alias shutdown='say goodbye && sudo shutdown -h now'
 alias reboot='sudo shutdown -r now'
 alias logout='gnome-session-quit'
 
@@ -118,7 +123,8 @@ alias dquilt="quilt --quiltrc=${HOME}/.quiltrc-dpkg"
 alias draw-desktop="gsettings set org.gnome.desktop.background show-desktop-icons"
 
 function burn-image() {
-    curl $1 | tee ~/images/$(basename $1) | gunzip | sudo dd of=/dev/mmcblk0 bs=8M
+    sudo true # grab sudo rights first or its hard to see under the curl output
+    curl $1 | tee ~/images/$(basename $1) | gunzip -c | sudo dd of=/dev/mmcblk0 bs=8M conv=sparse oflag=sync
 }
 
 function deb-extract() {
@@ -156,6 +162,9 @@ alias mr='m && r'
 alias -g '?'="| command grep"
 alias pgrep="ps -e | command grep"
 alias dgrep="dpkg -l | command grep"
+
+# add to clipboard
+alias clip="xclip -sel clip"
 
 # ls after every cd
 function chpwd() {

@@ -22,10 +22,13 @@
   re = rebase
   rd = rebase -i dev
   dd = diff dev
-  lp = log --graph --pretty=oneline --abbrev-commit --color
+  graph = log --graph --pretty=oneline --abbrev-commit --color --decorate
   pub = push --set-upstream origin HEAD
   publish = push --set-upstream origin HEAD
   ca = commit --amend
   cf = commit --amend --no-edit
+  nuke = clean -xdf
 [hub]
 	protocol = https
+[init]
+	templatedir = ~/.git_template

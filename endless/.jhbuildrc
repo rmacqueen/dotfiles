@@ -40,7 +40,7 @@ module_autogenargs['clutter-gtk'] = '--enable-debug=yes --enable-gtk-doc'
 module_autogenargs['eos-sdk'] = '--enable-gtk-doc --enable-gir-doc --enable-strict-flags --enable-js-doc'
 module_autogenargs['eos-metrics'] = '--enable-gtk-doc --enable-strict-flags'
 module_autogenargs['gstreamer'] = '--enable-gtk-doc'
-module_autogenargs['evince'] = '--enable-gtk-doc'
+module_autogenargs['evince'] = '--enable-gtk-doc --enable-pdf'
 module_autogenargs['clutter-gst'] = '--enable-gtk-doc'
 
 # custom CFLAGS / environment pieces for the build

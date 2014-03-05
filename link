@@ -1,0 +1,9 @@
+#!/bin/bash
+
+ln -s $PWD/git/.gitconfig ~/.gitconfig
+ln -s $PWD/git/.gitignore ~/.gitignore
+ln -s $PWD/endless/.jhbuildrc ~/.jhbuildrc
+ln -s $PWD/endless/.oscrc ~/.oscrc
+ln -s $PWD/endless/eos.modules ~/eos.modules
+ln -s $PWD/shell/.zshrc ~/.zshrc
+ln -s $PWD/shell/matt.zsh-theme ~/.oh-my-zsh/custom/matt.zsh-theme

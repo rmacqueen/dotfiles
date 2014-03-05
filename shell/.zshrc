@@ -258,11 +258,23 @@ function g()
             unset GIT_MODE
             unalias_git_mode
         else
-            export GIT_MODE='‹gm›'
+            export GIT_MODE=true
             alias_git_mode
         fi
     else
         git $@
+    fi
+}
+if [ $GIT_MODE ]; then
+    alias_git_mode
+fi
+
+function j()
+{
+    if [[ -z $UNDER_JHBUILD ]]; then
+        jhbuild shell
+    else
+        exit
     fi
 }
 

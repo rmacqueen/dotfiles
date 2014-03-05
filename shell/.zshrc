@@ -121,6 +121,7 @@ alias dquilt="quilt --quiltrc=${HOME}/.quiltrc-dpkg"
 
 # gsettings
 alias draw-desktop="gsettings set org.gnome.desktop.background show-desktop-icons"
+alias caps-is-control="gsettings set org.gnome.desktop.input-sources xkb-options \"['ctrl:nocaps']\""
 
 function burn-image() {
     sudo true # grab sudo rights first or its hard to see under the curl output

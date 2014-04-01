@@ -220,8 +220,17 @@
     </dependencies>
   </autotools>
 
+  <!-- Has no autotools, so for now we have a hack to skip it but still download the repo -->
   <autotools id="eos-resume-app" skip-autogen="true" makeargs="-v" skip-install="true">
     <branch repo="github.com" module="endlessm/eos-resume-app.git"
+            revision="dev"/>
+    <dependencies>
+      <dep package="eos-sdk"/>
+    </dependencies>
+  </autotools>
+
+  <autotools id="eos-knowledge-lib">
+    <branch repo="github.com" module="endlessm/eos-knowledge-lib.git"
             revision="dev"/>
     <dependencies>
       <dep package="eos-sdk"/>

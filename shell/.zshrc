@@ -104,6 +104,7 @@ alias zup='source ~/.zshrc'
 # cd commands for the stuff i'm currently working on
 alias sdk='cd ~/checkout/eos-sdk'
 alias prog='cd ~/checkout/eos-programming-app'
+alias know='cd ~/checkout/eos-knowledge-lib'
 alias build='cd ~/checkout/eos-obs-build'
 alias photo='cd ~/checkout/eos-photos'
 alias clut='cd ~/checkout/clutter'

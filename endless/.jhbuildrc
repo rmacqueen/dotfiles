@@ -38,6 +38,7 @@ module_autogenargs['clutter'] = '--enable-debug=yes --enable-gtk-doc'
 module_autogenargs['clutter-gtk'] = '--enable-debug=yes --enable-gtk-doc'
 
 module_autogenargs['eos-sdk'] = '--enable-gtk-doc --enable-gir-doc --enable-strict-flags --enable-js-doc'
+module_autogenargs['eos-knowledge-lib'] = '--enable-gtk-doc --enable-gir-doc --enable-js-doc'
 module_autogenargs['eos-metrics'] = '--enable-gtk-doc --enable-strict-flags'
 module_autogenargs['gstreamer'] = '--enable-gtk-doc'
 module_autogenargs['evince'] = '--enable-gtk-doc --enable-pdf'

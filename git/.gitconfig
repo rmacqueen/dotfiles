@@ -16,18 +16,21 @@
 [alias]
   s = status
   d = diff
+  dd = diff dev
+  du = !git fetch && git diff @{upstream}
   br = branch
-  ch = checkout
-  co = commit
   re = rebase
   rd = rebase -i dev
-  dd = diff dev
+  ch = checkout
+  co = commit
+  edit = commit --amend
+  fix = commit --amend --no-edit
+  wip = commit -m "wip"
   graph = log --graph --pretty=oneline --abbrev-commit --color --decorate
-  pub = push --set-upstream origin HEAD
   publish = push --set-upstream origin HEAD
-  ca = commit --amend
-  cf = commit --amend --no-edit
+  pub = !git publish
   nuke = clean -xdf
+  reup = !git fetch && git reset --hard @{upstream}
 [hub]
 	protocol = https
 [init]

@@ -1,10 +1,12 @@
 #!/bin/bash
+SCRIPT_DIR=$(dirname $(readlink -f $0))
 
-ln -s $PWD/git/.gitconfig ~/.gitconfig
-ln -s $PWD/git/.gitignore ~/.gitignore
-ln -s $PWD/git/.git_template ~/.git_template
-ln -s $PWD/endless/.jhbuildrc ~/.jhbuildrc
-ln -s $PWD/endless/.oscrc ~/.oscrc
-ln -s $PWD/endless/eos.modules ~/eos.modules
-ln -s $PWD/shell/.zshrc ~/.zshrc
-ln -s $PWD/shell/matt.zsh-theme ~/.oh-my-zsh/custom/matt.zsh-theme
+ln -sT ${SCRIPT_DIR}/git/.gitconfig ~/.gitconfig
+ln -sT ${SCRIPT_DIR}/git/.gitignore ~/.gitignore
+ln -sT ${SCRIPT_DIR}/git/.git_template ~/.git_template
+ln -sT ${SCRIPT_DIR}/endless/.jhbuildrc ~/.jhbuildrc
+ln -sT ${SCRIPT_DIR}/endless/.oscrc ~/.oscrc
+ln -sT ${SCRIPT_DIR}/endless/eos.modules ~/eos.modules
+ln -sT ${SCRIPT_DIR}/shell/.zshrc ~/.zshrc
+ln -sT ${SCRIPT_DIR}/shell/matt.zsh-theme ~/.oh-my-zsh/custom/matt.zsh-theme
+ln -sT ${SCRIPT_DIR}/subl ~/.config/sublime-text-3/Packages/User

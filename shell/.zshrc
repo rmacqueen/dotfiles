@@ -1,6 +1,6 @@
 # Path to your oh-my-zsh configuration.
 ZSH=$HOME/.oh-my-zsh
-THIS_DIR=$(dirname $(readlink -f $0))
+SCRIPT_DIR=$(dirname $(readlink -f $0))
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -126,7 +126,7 @@ alias draw-desktop="gsettings set org.gnome.desktop.background show-desktop-icon
 alias caps-is-control="gsettings set org.gnome.desktop.input-sources xkb-options \"['ctrl:nocaps']\""
 
 # sublime projects
-alias update-sublime-projects="python ${THIS_DIR}/update_projects.py"
+alias update-sublime-projects="python ${SCRIPT_DIR}/update_projects.py"
 
 function burn-image() {
     sudo true # grab sudo rights first or its hard to see under the curl output

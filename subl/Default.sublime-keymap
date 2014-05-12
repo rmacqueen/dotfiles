@@ -1,0 +1,40 @@
+[
+  { "keys": ["ctrl+k", "ctrl+2"], "command": "run_multiple_commands",
+    "args": {
+      "commands": [
+        {"command": "set_layout", "context": "window", "args":
+          {
+            "cols": [0.0, 0.5, 1.0], "rows": [0.0, 1.0], "cells": [[0, 0, 1, 1], [1, 0, 2, 1]]
+          }
+        },
+        {"command": "focus_group", "context": "window", "args": { "group": 0 }},
+        {"command": "move_to_group", "context": "window", "args": { "group": 1 }}
+      ]
+    }
+  },
+  {
+    "keys": ["ctrl+k", "ctrl+1"],
+    "command": "set_layout",
+    "args":
+    {
+      "cols": [0.0, 1.0],
+      "rows": [0.0, 1.0],
+      "cells": [[0, 0, 1, 1]]
+    }
+  },
+  { "keys": ["ctrl+k", "ctrl+f"], "command": "find_all_under" },
+  { "keys": ["ctrl+k", "ctrl+s"], "command": "prompt_save_as" },
+  { "keys": ["escape"], "command": "hide_panel", "args": {"cancel": false},
+    "context":
+    [
+      { "key": "panel_visible", "operator": "equal", "operand": true }
+    ]
+  },
+  { "keys": ["escape"], "command": "single_selection", "context":
+    [
+      { "key": "num_selections", "operator": "not_equal", "operand": 1 }
+    ]
+  },
+  { "keys": ["shift+f5"], "command": "build", "args": {"variant": "Run"} },
+  { "keys": ["ctrl+k", "ctrl+p"], "command": "show_overlay", "args": {"overlay": "command_palette"} }
+]

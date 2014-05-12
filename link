@@ -2,6 +2,7 @@
 
 ln -s $PWD/git/.gitconfig ~/.gitconfig
 ln -s $PWD/git/.gitignore ~/.gitignore
+ln -s $PWD/git/.git_template ~/.git_template
 ln -s $PWD/endless/.jhbuildrc ~/.jhbuildrc
 ln -s $PWD/endless/.oscrc ~/.oscrc
 ln -s $PWD/endless/eos.modules ~/eos.modules

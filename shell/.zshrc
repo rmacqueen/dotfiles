@@ -1,5 +1,6 @@
 # Path to your oh-my-zsh configuration.
 ZSH=$HOME/.oh-my-zsh
+THIS_DIR=$(dirname $(readlink -f $0))
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -83,7 +84,7 @@ alias fart='say pffttbbttbt'
 alias install='sudo apt-get install'
 alias remove='sudo apt-get remove'
 alias update='sudo apt-get update'
-alias upgrade='sudo apt-get update && sudo apt-get upgrade'
+alias upgrade='sudo apt-get update && sudo apt-get dist-upgrade'
 alias search='apt-cache search'
 
 # more dots
@@ -123,6 +124,9 @@ alias dquilt="quilt --quiltrc=${HOME}/.quiltrc-dpkg"
 # gsettings
 alias draw-desktop="gsettings set org.gnome.desktop.background show-desktop-icons"
 alias caps-is-control="gsettings set org.gnome.desktop.input-sources xkb-options \"['ctrl:nocaps']\""
+
+# sublime projects
+alias update-sublime-projects="python ${THIS_DIR}/update_projects.py"
 
 function burn-image() {
     sudo true # grab sudo rights first or its hard to see under the curl output
@@ -181,7 +185,7 @@ function gclone()
         cowsay "Enter a path!"
         return
     fi
-    local gitpath=https://github.com/"$1".git
+    local gitpath=git@github.com:"$1".git
     shift
     git clone $gitpath "$@"
 }

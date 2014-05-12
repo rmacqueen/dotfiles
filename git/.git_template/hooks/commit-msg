@@ -1,0 +1,19 @@
+#!/bin/bash
+
+# move this script to the .git/hooks directory for your repo. or to a global
+# git template directory. make sure to chmod +x this file
+
+branch=`git rev-parse --abbrev-ref HEAD`
+
+for repo in "sdk" "shell"; do
+    if [[ $branch == $repo/* ]]; then
+        number=`echo $branch | awk -F/ '{print $2}'`
+        link="[endlessm/eos-$repo#$number]"
+        grep -Fq "$link" $1 || {
+            echo "issue link: $link"
+            echo $link >> $1
+        }
+    fi
+done
+
+exit 0

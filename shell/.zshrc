@@ -50,12 +50,13 @@ alias wget='wget -c'
 alias chrome='google-chrome'
 alias files='xdg-open .'
 alias term='gnome-terminal'
+alias gdb='gdb -q -ex r'
 
 # some more ls aliases
 alias l='ls'
 alias la='ls -A'
-alias ll='ls -Al'
-alias lt='ls -Altr'
+alias ll='ls -Alh'
+alias lt='ls -Alhtr'
 
 # easy zsh move
 autoload -U zmv
@@ -68,14 +69,18 @@ alias sl='sl'
 
 function say() {
     if which cowsay >/dev/null; then
-        cowsay -f head-in -e "><" "$@" | cowthink -n -f dragon-and-cow -e "OO" | cowthink -n -s -f bong
+        cowfile=`ls /usr/share/cowsay/cows | sort -R | tail -1`
+        cowsay -f $cowfile "$@"
+        # cowsay -f head-in -e "><" "$@" | cowthink -n -f dragon-and-cow -e "OO" | cowthink -n -s -f bong
     else
         echo $@
     fi
 }
 
+alias fortune='wget -O - -q http://www.iheartquotes.com/api/v1/random\?max_characters=300 | sed "s/&quot;/\"/g" | sed -e "s!http[s]\?://\S*!!g"'
+alias quote='say `fortune`'
+alias bored='while :; do quote && sleep 4; done'
 alias lol='say lol'
-alias bored='say chin up, man'
 alias yo='say yo-yo'
 alias hey='say oh hai'
 alias fart='say pffttbbttbt'
@@ -93,9 +98,9 @@ alias ...='cd ../..'
 alias ....='cd ../../..'
 alias .....='cd ../../../..'
 
-alias size='du -sh'
+alias size='command du -sh'
 
-alias shutdown='say goodbye && sudo shutdown -h now'
+alias shutdown='quote && sudo shutdown -h now'
 alias reboot='sudo shutdown -r now'
 alias logout='gnome-session-quit'
 
@@ -109,7 +114,7 @@ alias know='cd ~/checkout/eos-knowledge-lib'
 alias build='cd ~/checkout/eos-obs-build'
 alias photo='cd ~/checkout/eos-photos'
 alias clut='cd ~/checkout/clutter'
-alias gtk='cd ~/checkout/gtk+'
+alias gtk='cd ~/checkout/gtk'
 alias theme='cd ~/checkout/eos-theme'
 alias shell='cd ~/checkout/eos-shell'
 
@@ -165,7 +170,7 @@ alias m='make install'
 alias mr='m && r'
 
 # pipe to grep
-alias -g '?'="| command grep"
+alias -g '??'="| command grep"
 alias pgrep="ps -e | command grep"
 alias dgrep="dpkg -l | command grep"
 

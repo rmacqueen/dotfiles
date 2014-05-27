@@ -31,7 +31,6 @@
   pub = !git publish
   nuke = clean -xdf
   reup = !git fetch && git reset --hard @{upstream}
-[hub]
-	protocol = https
+  patch = !git format-patch -o ~/checkout/patches
 [init]
 	templatedir = ~/.git_template

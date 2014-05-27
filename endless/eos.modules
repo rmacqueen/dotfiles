@@ -184,11 +184,22 @@
     </dependencies>
   </autotools>
 
-  <autotools id="eos-knowledge-apps" skip-autogen="true" makeargs="-v" skip-install="true">
+  <autotools id="eos-knowledge-db-build" skip-autogen="true" makeargs="-v" skip-install="true">
     <branch revision="dev"/>
     <dependencies>
       <dep package="eos-sdk"/>
     </dependencies>
+  </autotools>
+
+  <autotools id="eos-knowledge-apps">
+    <branch revision="dev"/>
+    <dependencies>
+      <dep package="eos-sdk"/>
+    </dependencies>
+  </autotools>
+
+  <autotools id="xapian-bridge">
+    <branch revision="sdk/1055"/>
   </autotools>
 
   <!-- GNOME -->

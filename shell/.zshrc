@@ -183,6 +183,14 @@ function chpwd() {
     ls
 }
 
+function remote-debug()
+{
+    gnome_session=$(command pgrep -u $USER gnome-session)
+    eval export $(sed 's/\o000/\n/g;' < /proc/$gnome_session/environ | command grep DISPLAY)
+    eval export $(sed 's/\o000/\n/g;' < /proc/$gnome_session/environ | command grep XAUTHORITY)
+    eval export $(sed 's/\o000/\n/g;' < /proc/$gnome_session/environ | command grep DBUS_SESSION_BUS_ADDRESS)
+}
+
 # quick clone
 function gclone()
 {

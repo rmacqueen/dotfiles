@@ -27,7 +27,7 @@
   </metamodule>
 
   <autotools id="eos-app-store">
-    <branch revision="dev"/>
+    <branch revision="master"/>
     <dependencies>
       <dep package="eos-sdk"/>
       <dep package="pstack"/>
@@ -35,39 +35,39 @@
   </autotools>
 
   <autotools id="eos-social">
-    <branch revision="dev"/>
+    <branch revision="master"/>
     <dependencies>
       <dep package="eos-sdk"/>
     </dependencies>
   </autotools>
 
   <autotools id="eos-file-manager">
-    <branch revision="dev"/>
+    <branch revision="master"/>
   </autotools>
 
   <!-- soon we should be able to take this out -->
   <autotools id="pstack">
-    <branch revision="dev"/>
+    <branch revision="master"/>
   </autotools>
 
   <autotools id="eos-theme">
-    <branch revision="dev"/>
+    <branch revision="master"/>
   </autotools>
 
   <autotools id="eos-sdk">
-    <branch revision="dev"/>
+    <branch revision="master"/>
   </autotools>
 
   <autotools id="eos-shell-content">
-    <branch revision="dev"/>
+    <branch revision="master"/>
   </autotools>
 
   <autotools id="eos-metrics">
-    <branch revision="dev"/>
+    <branch revision="master"/>
   </autotools>
 
   <autotools id="eos-shell">
-    <branch revision="dev"/>
+    <branch revision="master"/>
     <dependencies>
       <dep package="eos-shell-content"/>
     </dependencies>
@@ -94,112 +94,112 @@
   </metamodule>
 
   <autotools id="eos-wikipedia">
-    <branch revision="dev"/>
+    <branch revision="master"/>
     <dependencies>
       <dep package="eos-sdk"/>
     </dependencies>
   </autotools>
 
   <autotools id="eos-wikipedia-apps">
-    <branch revision="dev"/>
+    <branch revision="master"/>
     <dependencies>
       <dep package="eos-sdk"/>
     </dependencies>
   </autotools>
 
   <autotools id="eos-wikipedia-offline" skip-autogen="true" makeargs="-v" skip-install="true">
-    <branch revision="dev"/>
+    <branch revision="master"/>
     <dependencies>
       <dep package="eos-sdk"/>
     </dependencies>
   </autotools>
 
   <autotools id="eos-weather">
-    <branch revision="dev"/>
+    <branch revision="master"/>
     <dependencies>
       <dep package="eos-sdk"/>
     </dependencies>
   </autotools>
 
   <autotools id="eos-youtube-gjs">
-    <branch revision="dev"/>
+    <branch revision="master"/>
     <dependencies>
       <dep package="eos-sdk"/>
     </dependencies>
   </autotools>
 
   <autotools id="eos-translation" skip-autogen="true" makeargs="-v" skip-install="true">
-    <branch revision="dev"/>
+    <branch revision="master"/>
     <dependencies>
       <dep package="eos-sdk"/>
     </dependencies>
   </autotools>
 
   <autotools id="eos-programming-app">
-    <branch revision="dev"/>
+    <branch revision="master"/>
     <dependencies>
       <dep package="eos-sdk"/>
     </dependencies>
   </autotools>
 
   <autotools id="eos-photos">
-    <branch revision="dev"/>
+    <branch revision="master"/>
     <dependencies>
       <dep package="eos-sdk"/>
     </dependencies>
   </autotools>
 
   <autotools id="eos-english">
-    <branch revision="dev"/>
+    <branch revision="master"/>
     <dependencies>
       <dep package="eos-sdk"/>
     </dependencies>
   </autotools>
 
   <autotools id="eos-typing">
-    <branch revision="dev"/>
+    <branch revision="master"/>
     <dependencies>
       <dep package="eos-sdk"/>
     </dependencies>
   </autotools>
 
   <autotools id="eos-resume-app" skip-autogen="true" makeargs="-v" skip-install="true">
-    <branch revision="dev"/>
+    <branch revision="master"/>
     <dependencies>
       <dep package="eos-sdk"/>
     </dependencies>
   </autotools>
 
   <autotools id="eos-knowledge-lib">
-    <branch revision="dev"/>
+    <branch revision="master"/>
     <dependencies>
       <dep package="eos-sdk"/>
     </dependencies>
   </autotools>
 
   <autotools id="eos-knowledge-engine" skip-autogen="true" makeargs="-v" skip-install="true">
-    <branch revision="dev"/>
+    <branch revision="master"/>
     <dependencies>
       <dep package="eos-sdk"/>
     </dependencies>
   </autotools>
 
   <autotools id="eos-knowledge-db-build" skip-autogen="true" makeargs="-v" skip-install="true">
-    <branch revision="dev"/>
+    <branch revision="master"/>
     <dependencies>
       <dep package="eos-sdk"/>
     </dependencies>
   </autotools>
 
   <autotools id="eos-knowledge-apps">
-    <branch revision="dev"/>
+    <branch revision="master"/>
     <dependencies>
       <dep package="eos-sdk"/>
     </dependencies>
   </autotools>
 
   <autotools id="xapian-bridge">
-    <branch revision="sdk/1055"/>
+    <branch revision="master"/>
   </autotools>
 
   <!-- GNOME -->
@@ -212,20 +212,20 @@
   </metamodule>
 
   <autotools id="gjs">
-    <branch revision="dev"/>
+    <branch revision="master"/>
   </autotools>
 
   <autotools id="gtk">
-    <branch revision="dev"/>
+    <branch revision="master"/>
   </autotools>
 
   <autotools id="glib">
-    <branch revision="dev"/>
+    <branch revision="master"/>
   </autotools>
 
   <!-- MISC -->
   <autotools id="eos-obs-build" skip-autogen="true" makeargs="-v" skip-install="true">
-    <branch revision="dev"/>
+    <branch revision="master"/>
   </autotools>
 
 

@@ -16,11 +16,11 @@
 [alias]
   s = status
   d = diff
-  dd = diff dev
+  dm = diff master
   du = !git fetch && git diff @{upstream}
   br = branch
   re = rebase
-  rd = rebase -i dev
+  rim = rebase -i master
   ch = checkout
   co = commit
   edit = commit --amend

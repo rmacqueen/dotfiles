@@ -5,43 +5,52 @@
 <moduleset>
 
 <!-- repos -->
-
-  <!-- Github git -->
   <repository type="git" name="github.com" href="git@github.com:endlessm" default="yes"/>
-
-
-<!-- modules -->
 
 <!-- CORE -->
   <metamodule id="meta-eos-core">
     <dependencies>
-      <dep package="eos-shell"/>
-      <dep package="eos-shell-content"/>
       <dep package="eos-app-store"/>
-      <dep package="eos-social"/>
       <dep package="eos-file-manager"/>
       <dep package="eos-metrics"/>
-      <dep package="eos-theme"/>
       <dep package="eos-sdk"/>
+      <dep package="eos-shell"/>
+      <dep package="eos-shell-content"/>
+      <dep package="eos-social"/>
+      <dep package="eos-theme"/>
+      <dep package="pstack"/>
     </dependencies>
   </metamodule>
 
   <autotools id="eos-app-store">
     <branch revision="master"/>
-    <dependencies>
-      <dep package="eos-sdk"/>
-      <dep package="pstack"/>
-    </dependencies>
+  </autotools>
+
+  <autotools id="eos-file-manager">
+    <branch revision="master"/>
+  </autotools>
+
+  <autotools id="eos-metrics">
+    <branch revision="master"/>
+  </autotools>
+
+  <autotools id="eos-sdk">
+    <branch revision="master"/>
+  </autotools>
+
+  <autotools id="eos-shell">
+    <branch revision="master"/>
+  </autotools>
+
+  <autotools id="eos-shell-content">
+    <branch revision="master"/>
   </autotools>
 
   <autotools id="eos-social">
     <branch revision="master"/>
-    <dependencies>
-      <dep package="eos-sdk"/>
-    </dependencies>
   </autotools>
 
-  <autotools id="eos-file-manager">
+  <autotools id="eos-theme">
     <branch revision="master"/>
   </autotools>
 
@@ -50,164 +59,96 @@
     <branch revision="master"/>
   </autotools>
 
-  <autotools id="eos-theme">
-    <branch revision="master"/>
-  </autotools>
-
-  <autotools id="eos-sdk">
-    <branch revision="master"/>
-  </autotools>
-
-  <autotools id="eos-shell-content">
-    <branch revision="master"/>
-  </autotools>
-
-  <autotools id="eos-metrics">
-    <branch revision="master"/>
-  </autotools>
-
-  <autotools id="eos-shell">
-    <branch revision="master"/>
-    <dependencies>
-      <dep package="eos-shell-content"/>
-    </dependencies>
-  </autotools>
-
 <!-- APPS -->
   <metamodule id="meta-eos-apps">
     <dependencies>
       <dep package="eos-english"/>
       <dep package="eos-knowledge-apps"/>
+      <dep package="eos-knowledge-db-build"/>
       <dep package="eos-knowledge-engine"/>
       <dep package="eos-knowledge-lib"/>
+      <dep package="eos-node-modules"/>
       <dep package="eos-photos"/>
       <dep package="eos-programming-app"/>
       <dep package="eos-resume-app"/>
+      <dep package="eos-sdk"/>
       <dep package="eos-translation"/>
       <dep package="eos-typing"/>
       <dep package="eos-weather"/>
       <dep package="eos-wikipedia"/>
-      <dep package="eos-wikipedia-apps"/>
-      <dep package="eos-wikipedia-offline"/>
       <dep package="eos-youtube-gjs"/>
+      <dep package="xapian-bridge"/>
     </dependencies>
   </metamodule>
 
-  <autotools id="eos-wikipedia">
-    <branch revision="master"/>
-    <dependencies>
-      <dep package="eos-sdk"/>
-    </dependencies>
-  </autotools>
-
-  <autotools id="eos-wikipedia-apps">
-    <branch revision="master"/>
-    <dependencies>
-      <dep package="eos-sdk"/>
-    </dependencies>
-  </autotools>
-
-  <autotools id="eos-wikipedia-offline" skip-autogen="true" makeargs="-v" skip-install="true">
-    <branch revision="master"/>
-    <dependencies>
-      <dep package="eos-sdk"/>
-    </dependencies>
-  </autotools>
-
-  <autotools id="eos-weather">
-    <branch revision="master"/>
-    <dependencies>
-      <dep package="eos-sdk"/>
-    </dependencies>
-  </autotools>
-
-  <autotools id="eos-youtube-gjs">
-    <branch revision="master"/>
-    <dependencies>
-      <dep package="eos-sdk"/>
-    </dependencies>
-  </autotools>
-
-  <autotools id="eos-translation" skip-autogen="true" makeargs="-v" skip-install="true">
-    <branch revision="master"/>
-    <dependencies>
-      <dep package="eos-sdk"/>
-    </dependencies>
-  </autotools>
-
-  <autotools id="eos-programming-app">
-    <branch revision="master"/>
-    <dependencies>
-      <dep package="eos-sdk"/>
-    </dependencies>
-  </autotools>
-
-  <autotools id="eos-photos">
-    <branch revision="master"/>
-    <dependencies>
-      <dep package="eos-sdk"/>
-    </dependencies>
-  </autotools>
-
   <autotools id="eos-english">
     <branch revision="master"/>
-    <dependencies>
-      <dep package="eos-sdk"/>
-    </dependencies>
-  </autotools>
-
-  <autotools id="eos-typing">
-    <branch revision="master"/>
-    <dependencies>
-      <dep package="eos-sdk"/>
-    </dependencies>
-  </autotools>
-
-  <autotools id="eos-resume-app" skip-autogen="true" makeargs="-v" skip-install="true">
-    <branch revision="master"/>
-    <dependencies>
-      <dep package="eos-sdk"/>
-    </dependencies>
-  </autotools>
-
-  <autotools id="eos-knowledge-lib">
-    <branch revision="master"/>
-    <dependencies>
-      <dep package="eos-sdk"/>
-    </dependencies>
-  </autotools>
-
-  <autotools id="eos-knowledge-engine" skip-autogen="true" makeargs="-v" skip-install="true">
-    <branch revision="master"/>
-    <dependencies>
-      <dep package="eos-sdk"/>
-    </dependencies>
-  </autotools>
-
-  <autotools id="eos-knowledge-db-build" skip-autogen="true" makeargs="-v" skip-install="true">
-    <branch revision="master"/>
-    <dependencies>
-      <dep package="eos-sdk"/>
-    </dependencies>
   </autotools>
 
   <autotools id="eos-knowledge-apps">
     <branch revision="master"/>
-    <dependencies>
-      <dep package="eos-sdk"/>
-    </dependencies>
+  </autotools>
+
+  <autotools id="eos-knowledge-db-build" skip-autogen="true" makeargs="-v" skip-install="true">
+    <branch revision="master"/>
+  </autotools>
+
+  <autotools id="eos-knowledge-lib">
+    <branch revision="master"/>
+  </autotools>
+
+  <autotools id="eos-knowledge-engine" skip-autogen="true" makeargs="-v" skip-install="true">
+    <branch revision="master"/>
+  </autotools>
+
+  <autotools id="eos-node-modules">
+    <branch revision="master"/>
+  </autotools>
+
+  <autotools id="eos-photos">
+    <branch revision="master"/>
+  </autotools>
+
+  <autotools id="eos-programming-app">
+    <branch revision="master"/>
+  </autotools>
+
+  <autotools id="eos-resume-app" skip-autogen="true" makeargs="-v" skip-install="true">
+    <branch revision="master"/>
+  </autotools>
+
+  <autotools id="eos-translation" skip-autogen="true" makeargs="-v" skip-install="true">
+    <branch revision="master"/>
+  </autotools>
+
+  <autotools id="eos-typing">
+    <branch revision="master"/>
+  </autotools>
+
+  <autotools id="eos-weather">
+    <branch revision="master"/>
+  </autotools>
+
+  <autotools id="eos-wikipedia">
+    <branch revision="master"/>
+  </autotools>
+
+  <autotools id="eos-youtube-gjs">
+    <branch revision="master"/>
   </autotools>
 
   <autotools id="xapian-bridge">
     <branch revision="master"/>
   </autotools>
 
-  <!-- GNOME -->
+<!-- GNOME -->
   <metamodule id="meta-eos-gnome">
     <dependencies>
       <dep package="gjs"/>
-      <dep package="gtk"/>
       <dep package="glib"/>
+      <dep package="gtk"/>
+      <dep package="libsoup"/>
+      <dep package="xapian-glib"/>
     </dependencies>
   </metamodule>
 
@@ -215,18 +156,25 @@
     <branch revision="master"/>
   </autotools>
 
-  <autotools id="gtk">
-    <branch revision="master"/>
-  </autotools>
-
   <autotools id="glib">
     <branch revision="master"/>
   </autotools>
 
-  <!-- MISC -->
-  <autotools id="eos-obs-build" skip-autogen="true" makeargs="-v" skip-install="true">
+  <autotools id="gtk">
     <branch revision="master"/>
   </autotools>
 
+  <autotools id="libsoup">
+    <branch revision="master"/>
+  </autotools>
+
+  <autotools id="xapian-glib">
+    <branch revision="master"/>
+  </autotools>
+
+<!-- MISC -->
+  <autotools id="eos-obs-build" skip-autogen="true" makeargs="-v" skip-install="true">
+    <branch revision="master"/>
+  </autotools>
 
 </moduleset>

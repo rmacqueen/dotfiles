@@ -1,6 +1,6 @@
 # Path to your oh-my-zsh configuration.
 ZSH=$HOME/.oh-my-zsh
-SCRIPT_DIR=$(dirname $(readlink -f $0))
+ZSH_SCRIPT_DIR=$(dirname $(readlink -f $0))
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -109,11 +109,10 @@ alias zup='source ~/.zshrc'
 
 # cd commands for the stuff i'm currently working on
 alias sdk='cd ~/checkout/eos-sdk'
-alias prog='cd ~/checkout/eos-programming-app'
+alias prog='cd ~/checkout/eos-programming'
 alias know='cd ~/checkout/eos-knowledge-lib'
 alias build='cd ~/checkout/eos-obs-build'
 alias photo='cd ~/checkout/eos-photos'
-alias clut='cd ~/checkout/clutter'
 alias gtk='cd ~/checkout/gtk'
 alias theme='cd ~/checkout/eos-theme'
 alias shell='cd ~/checkout/eos-shell'
@@ -131,7 +130,7 @@ alias draw-desktop="gsettings set org.gnome.desktop.background show-desktop-icon
 alias caps-is-control="gsettings set org.gnome.desktop.input-sources xkb-options \"['ctrl:nocaps']\""
 
 # sublime projects
-alias update-sublime-projects="python ${SCRIPT_DIR}/update_projects.py"
+alias update-sublime-projects="python ${ZSH_SCRIPT_DIR}/update_projects.py"
 
 function burn-image() {
     sudo true # grab sudo rights first or its hard to see under the curl output

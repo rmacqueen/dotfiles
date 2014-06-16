@@ -20,6 +20,7 @@
   du = !git fetch && git diff @{upstream}
   br = branch
   re = rebase
+  ri = rebase -i
   rim = rebase -i master
   ch = checkout
   co = commit

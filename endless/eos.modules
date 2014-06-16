@@ -69,14 +69,14 @@
       <dep package="eos-knowledge-lib"/>
       <dep package="eos-node-modules"/>
       <dep package="eos-photos"/>
-      <dep package="eos-programming-app"/>
-      <dep package="eos-resume-app"/>
+      <dep package="eos-programming"/>
+      <dep package="eos-resume"/>
       <dep package="eos-sdk"/>
       <dep package="eos-translation"/>
       <dep package="eos-typing"/>
       <dep package="eos-weather"/>
       <dep package="eos-wikipedia"/>
-      <dep package="eos-youtube-gjs"/>
+      <dep package="eos-youtube"/>
       <dep package="xapian-bridge"/>
     </dependencies>
   </metamodule>
@@ -109,11 +109,11 @@
     <branch revision="master"/>
   </autotools>
 
-  <autotools id="eos-programming-app">
+  <autotools id="eos-programming">
     <branch revision="master"/>
   </autotools>
 
-  <autotools id="eos-resume-app" skip-autogen="true" makeargs="-v" skip-install="true">
+  <autotools id="eos-resume" skip-autogen="true" makeargs="-v" skip-install="true">
     <branch revision="master"/>
   </autotools>
 
@@ -133,7 +133,7 @@
     <branch revision="master"/>
   </autotools>
 
-  <autotools id="eos-youtube-gjs">
+  <autotools id="eos-youtube">
     <branch revision="master"/>
   </autotools>
 
@@ -172,7 +172,21 @@
     <branch revision="master"/>
   </autotools>
 
-<!-- MISC -->
+<!-- ALL -->
+  <metamodule id="meta-eos-all">
+    <dependencies>
+      <dep package="meta-eos-apps"/>
+      <dep package="meta-eos-core"/>
+      <dep package="meta-eos-gnome"/>
+      <dep package="eos-meta"/>
+      <dep package="eos-obs-build"/>
+    </dependencies>
+  </metamodule>
+
+  <autotools id="eos-meta" skip-autogen="true" makeargs="-v" skip-install="true">
+    <branch revision="master"/>
+  </autotools>
+
   <autotools id="eos-obs-build" skip-autogen="true" makeargs="-v" skip-install="true">
     <branch revision="master"/>
   </autotools>

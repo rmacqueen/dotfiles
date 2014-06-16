@@ -1,6 +1,6 @@
 # Path to your oh-my-zsh configuration.
 ZSH=$HOME/.oh-my-zsh
-ZSH_SCRIPT_DIR=$(dirname $(readlink -f $0))
+ZSH_SCRIPT_DIR=$(dirname $(readlink -f ${HOME}/.zshrc))
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/

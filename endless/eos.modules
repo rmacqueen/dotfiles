@@ -62,7 +62,9 @@
 <!-- APPS -->
   <metamodule id="meta-eos-apps">
     <dependencies>
+      <dep package="eos-encyclopedia"/>
       <dep package="eos-english"/>
+      <dep package="eos-finance"/>
       <dep package="eos-knowledge-apps"/>
       <dep package="eos-knowledge-db-build"/>
       <dep package="eos-knowledge-engine"/>
@@ -75,13 +77,20 @@
       <dep package="eos-translation"/>
       <dep package="eos-typing"/>
       <dep package="eos-weather"/>
-      <dep package="eos-wikipedia"/>
       <dep package="eos-youtube"/>
       <dep package="xapian-bridge"/>
     </dependencies>
   </metamodule>
 
+  <autotools id="eos-encyclopedia">
+    <branch revision="master"/>
+  </autotools>
+
   <autotools id="eos-english">
+    <branch revision="master"/>
+  </autotools>
+
+  <autotools id="eos-finance" skip-autogen="true" makeargs="-v" skip-install="true">
     <branch revision="master"/>
   </autotools>
 
@@ -126,10 +135,6 @@
   </autotools>
 
   <autotools id="eos-weather">
-    <branch revision="master"/>
-  </autotools>
-
-  <autotools id="eos-wikipedia">
     <branch revision="master"/>
   </autotools>
 

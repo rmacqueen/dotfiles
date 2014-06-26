@@ -63,6 +63,7 @@
   <metamodule id="meta-eos-apps">
     <dependencies>
       <dep package="eos-encyclopedia"/>
+      <dep package="eos-encyclopedia-db"/>
       <dep package="eos-english"/>
       <dep package="eos-finance"/>
       <dep package="eos-knowledge-apps"/>
@@ -77,12 +78,16 @@
       <dep package="eos-translation"/>
       <dep package="eos-typing"/>
       <dep package="eos-weather"/>
-      <dep package="eos-youtube"/>
+      <dep package="eos-youvideos"/>
       <dep package="xapian-bridge"/>
     </dependencies>
   </metamodule>
 
   <autotools id="eos-encyclopedia">
+    <branch revision="master"/>
+  </autotools>
+
+  <autotools id="eos-encyclopedia-db">
     <branch revision="master"/>
   </autotools>
 
@@ -138,7 +143,7 @@
     <branch revision="master"/>
   </autotools>
 
-  <autotools id="eos-youtube">
+  <autotools id="eos-youvideos">
     <branch revision="master"/>
   </autotools>
 

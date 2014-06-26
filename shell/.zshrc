@@ -150,26 +150,26 @@ function deb-build() {
 # run command for different directories
 function r() {
     if ! git rev-parse --git-dir > /dev/null 2>&1; then
-        cowsay "No git no dice"
+        say "No git no dice"
         return
     fi
     local repodir=$(git rev-parse --show-toplevel)
     local reponame="$(basename $repodir)"
-    if [ "$reponame" = "eos-programming-app" ]; then
-        gjs $repodir/src/endless_programming.js
-    elif [ "$reponame" = "eos-photos" ]; then
-        $repodir/endless-os-photos
-    elif [ "$reponame" = "eos-weather" ]; then
-        gjs $repodir/src/endless_weather.js
+    if [ "$reponame" = "eos-knowledge-apps" ]; then
+        jhbuild run eos-thrones
+    elif [ "$reponame" = "eos-knowledge-lib" ]; then
+        jhbuild run gjs $repodir/tests/smoke-tests/homePageBSmokeTest.js
+    elif [ "$reponame" = "eos-resume" ]; then
+        jhbuild run gjs $repodir/resume-app.js
     else
-        cowsay "Write a run rule"
+        jhbuild run $reponame
     fi
 }
-alias m='make install'
+alias m='jhbuild make'
 alias mr='m && r'
 
 # pipe to grep
-alias -g '??'="| command grep"
+alias -g '@'="| command grep"
 alias pgrep="ps -e | command grep"
 alias dgrep="dpkg -l | command grep"
 
@@ -190,34 +190,26 @@ function remote-debug()
     eval export $(sed 's/\o000/\n/g;' < /proc/$gnome_session/environ | command grep DBUS_SESSION_BUS_ADDRESS)
 }
 
+function jhbuild-knowledge-engine()
+{
+    sudo systemctl stop xapian-bridge.service
+    sudo systemctl stop xapian-bridge.socket
+    jhbuild run xapian-bridge
+    sudo systemctl stop eos-knowledge-engine.service
+    sudo systemctl stop eos-knowledge-engine.socket
+    jhbuild run node $HOME/checkout/eos-knowledge-engine/server.js
+}
+
 # quick clone
 function gclone()
 {
     if [ "$#" -eq 0 ]; then
-        cowsay "Enter a path!"
+        say "Enter a path!"
         return
     fi
     local gitpath=git@github.com:"$1".git
     shift
     git clone $gitpath "$@"
-}
-
-# quick browser stuff
-function huboard()
-{
-    if [ "$#" -eq 0 ]; then
-        cowsay "Enter a path!"
-        return
-    fi
-    chrome http://huboard.com/endlessm/eos-"$1"
-}
-function github()
-{
-    if [ "$#" -eq 0 ]; then
-        cowsay "Enter a path!"
-        return
-    fi
-    chrome https://github.com/endlessm/eos-"$1"
 }
 
 # Git mode! work in progress

@@ -194,7 +194,7 @@ function jhbuild-knowledge-engine()
 {
     sudo systemctl stop xapian-bridge.service
     sudo systemctl stop xapian-bridge.socket
-    jhbuild run xapian-bridge
+    jhbuild run xapian-bridge &
     sudo systemctl stop eos-knowledge-engine.service
     sudo systemctl stop eos-knowledge-engine.socket
     jhbuild run node $HOME/checkout/eos-knowledge-engine/server.js

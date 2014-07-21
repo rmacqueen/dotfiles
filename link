@@ -5,7 +5,6 @@ ln -sT ${SCRIPT_DIR}/git/.gitconfig ~/.gitconfig
 ln -sT ${SCRIPT_DIR}/git/.gitignore ~/.gitignore
 ln -sT ${SCRIPT_DIR}/git/.git_template ~/.git_template
 ln -sT ${SCRIPT_DIR}/endless/.jhbuildrc ~/.jhbuildrc
-ln -sT ${SCRIPT_DIR}/endless/.oscrc ~/.oscrc
 ln -sT ${SCRIPT_DIR}/endless/eos.modules ~/eos.modules
 ln -sT ${SCRIPT_DIR}/shell/.zshrc ~/.zshrc
 ln -sT ${SCRIPT_DIR}/shell/matt.zsh-theme ~/.oh-my-zsh/custom/matt.zsh-theme

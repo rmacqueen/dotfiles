@@ -10,6 +10,7 @@
 <!-- CORE -->
   <metamodule id="meta-eos-core">
     <dependencies>
+      <dep package="eos-app-manager"/>
       <dep package="eos-app-store"/>
       <dep package="eos-file-manager"/>
       <dep package="eos-metrics"/>
@@ -21,6 +22,10 @@
       <dep package="pstack"/>
     </dependencies>
   </metamodule>
+
+  <autotools id="eos-app-manager">
+    <branch revision="master"/>
+  </autotools>
 
   <autotools id="eos-app-store">
     <branch revision="master"/>
@@ -77,6 +82,7 @@
       <dep package="eos-sdk"/>
       <dep package="eos-translation"/>
       <dep package="eos-typing"/>
+      <dep package="eos-virtual-school"/>
       <dep package="eos-weather"/>
       <dep package="eos-youvideos"/>
       <dep package="xapian-bridge"/>
@@ -139,6 +145,10 @@
     <branch revision="master"/>
   </autotools>
 
+  <autotools id="eos-virtual-school">
+    <branch revision="master"/>
+  </autotools>
+
   <autotools id="eos-weather">
     <branch revision="master"/>
   </autotools>
@@ -190,6 +200,7 @@
       <dep package="meta-eos-gnome"/>
       <dep package="eos-meta"/>
       <dep package="eos-obs-build"/>
+      <dep package="eos-shell-build"/>
     </dependencies>
   </metamodule>
 
@@ -198,6 +209,10 @@
   </autotools>
 
   <autotools id="eos-obs-build" skip-autogen="true" makeargs="-v" skip-install="true">
+    <branch revision="master"/>
+  </autotools>
+
+  <autotools id="eos-shell-build" skip-autogen="true" makeargs="-v" skip-install="true">
     <branch revision="master"/>
   </autotools>
 

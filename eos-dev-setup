@@ -1,0 +1,38 @@
+#!/bin/bash -ex
+
+cd ~
+
+apt-get update
+apt-get install eos-dev
+
+wget http://c758482.r82.cf2.rackcdn.com/sublime-text_build-3059_i386.deb
+
+dpkg -i sublime-text_build-3059_i386.deb
+
+### JHBUILD ###
+
+git clone git://git.gnome.org/jhbuild
+
+cd jhbuild
+./autogen.sh
+make
+make install
+
+### GET DEPENDENCIES ###
+
+apt-get install eos-knowledge-build
+apt-get install eos-sdk
+apt-get install npm
+apt-get install python-numpy
+apt-get install python-scipy
+apt-get install python-skimage
+apt-get install python-polib
+apt-get install python-bs4
+apt-get install eos-sdk-bin
+apt-get install libclutter-1.0-dev 
+apt-get build-dep eos-knowledge-lib
+apt-get build-dep eos-metrics
+apt-get build-dep eos-knowledge-engine
+
+jhbuild build
+

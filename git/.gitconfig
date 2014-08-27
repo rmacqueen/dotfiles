@@ -1,6 +1,6 @@
 [user]
-	name = Matt Watson
-	email = mattdangerw@gmail.com
+	name = Rory MacQueen
+	email = rorymacqueen@gmail.com
 [core]
 	editor = subl -w
 	excludesfile = ~/.gitignore

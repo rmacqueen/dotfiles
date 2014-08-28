@@ -6,7 +6,7 @@ ZSH_SCRIPT_DIR=$(dirname $(readlink -f ${HOME}/.zshrc))
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="matt"
+ZSH_THEME="bira"
 
 # Comment this out to disable bi-weekly auto-update checks
 # DISABLE_AUTO_UPDATE="true"
@@ -110,17 +110,21 @@ alias zup='source ~/.zshrc'
 # cd commands for the stuff i'm currently working on
 alias sdk='cd ~/checkout/eos-sdk'
 alias prog='cd ~/checkout/eos-programming'
-alias know='cd ~/checkout/eos-knowledge-lib'
 alias build='cd ~/checkout/eos-obs-build'
 alias photo='cd ~/checkout/eos-photos'
 alias gtk='cd ~/checkout/gtk'
 alias theme='cd ~/checkout/eos-theme'
 alias shell='cd ~/checkout/eos-shell'
+alias ekn='cd ~/checkout/eos-knowledge-engine'
+alias ekl='cd ~/checkout/eos-knowledge-lib'
+alias ekb='cd ~/checkout/eos-knowledge-db-build'
+alias eka='cd ~/checkout/eos-knowledge-apps'
 
 # ssh connections
 alias jenkins='ssh ci -L 8080:localhost:8080'
 alias elastic='ssh elastic@10.0.1.16 -L 9200:localhost:9200'
 alias markin='ssh endlesss@endless.kollective.it -L 9200:localhost:9200'
+alias aws='ssh -i ~/AWS_keys/rory_key.pem ubuntu@54.88.124.154'
 
 # debian
 alias dquilt="quilt --quiltrc=${HOME}/.quiltrc-dpkg"

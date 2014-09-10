@@ -10,10 +10,10 @@ moduleset = ['gnome-apps-3.12', os.path.expanduser('~/eos.modules')]
 modules = ['meta-eos-all']
 
 # what directory should the source be checked out to?
-checkoutroot = '/home/matt/checkout'
+checkoutroot = '/home/endless/checkout'
 
 # the prefix to configure/install modules to (must have write access)
-prefix = '/home/matt/install'
+prefix = '/home/endless/install'
 
 # are these necessary?
 module_autogenargs['gjs'] = '--enable-debug=yes --enable-gtk-doc'

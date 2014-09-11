@@ -119,8 +119,11 @@ alias ekn='cd ~/checkout/eos-knowledge-engine'
 alias ekl='cd ~/checkout/eos-knowledge-lib'
 alias ekb='cd ~/checkout/eos-knowledge-db-build'
 alias eka='cd ~/checkout/eos-knowledge-apps'
+alias xb='cd ~/checkout/xapian-bridge'
+alias xglib='cd ~/checkout/xapian-glib'
 
 # ssh connections
+alias knowledge-build='ssh devs@knowledge-build'
 alias jenkins='ssh ci -L 8080:localhost:8080'
 alias elastic='ssh elastic@10.0.1.16 -L 9200:localhost:9200'
 alias markin='ssh endlesss@endless.kollective.it -L 9200:localhost:9200'
@@ -192,6 +195,14 @@ function remote-debug()
     eval export $(sed 's/\o000/\n/g;' < /proc/$gnome_session/environ | command grep DISPLAY)
     eval export $(sed 's/\o000/\n/g;' < /proc/$gnome_session/environ | command grep XAUTHORITY)
     eval export $(sed 's/\o000/\n/g;' < /proc/$gnome_session/environ | command grep DBUS_SESSION_BUS_ADDRESS)
+}
+
+function stop-ekn()
+{
+    sudo systemctl stop xapian-bridge.service
+    sudo systemctl stop xapian-bridge.socket
+    sudo systemctl stop eos-knowledge-engine.service
+    sudo systemctl stop eos-knowledge-engine.socket
 }
 
 function jhbuild-knowledge-engine()

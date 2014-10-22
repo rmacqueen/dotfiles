@@ -320,3 +320,6 @@ compdef _h h
 # autocomplete for huboard github commands
 # cd commands for every eos repo
 # version control!
+
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"

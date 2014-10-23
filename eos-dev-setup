@@ -18,6 +18,8 @@ cd jhbuild
 make
 make install
 
+### Now run ./link inside the dotfiles directory
+###
 ### GET DEPENDENCIES ###
 
 apt-get install eos-knowledge-build
@@ -31,6 +33,9 @@ apt-get install python-bs4
 apt-get install eos-sdk-bin
 apt-get install libclutter-1.0-dev 
 apt-get build-dep eos-knowledge-lib
+apt-get build-dep eos-theme
+apt-get build-dep eos-sdk-0-dev
+apt-get build-dep eos-encyclopedia
 apt-get build-dep eos-metrics
 apt-get build-dep eos-knowledge-engine
 

@@ -9,6 +9,11 @@ wget http://c758482.r82.cf2.rackcdn.com/sublime-text_build-3059_i386.deb
 
 dpkg -i sublime-text_build-3059_i386.deb
 
+## ZSH ##
+curl -L http://install.ohmyz.sh | sh
+chsh -s `which zsh`
+
+
 ### JHBUILD ###
 
 git clone git://git.gnome.org/jhbuild

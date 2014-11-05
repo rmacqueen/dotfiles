@@ -27,7 +27,7 @@ module_autogenargs['clutter-gtk'] = '--enable-debug=yes --enable-gtk-doc'
 module_autogenargs['eos-sdk'] = '--enable-gtk-doc --enable-gir-doc --enable-strict-flags --enable-js-doc'
 module_autogenargs['eos-knowledge-lib'] = '--enable-gtk-doc --enable-gir-doc --enable-js-doc'
 module_autogenargs['eos-metrics'] = '--enable-gtk-doc --enable-strict-flags'
-module_autogenargs['eos-knowledge-apps'] = '--enable-database=no-media'
+module_autogenargs['eos-knowledge-apps'] = '--enable-database=no'
 module_autogenargs['eos-encyclopedia-db'] = 'DB_SIZE=2 --enable-database'
 
 # custom CFLAGS / environment pieces for the build

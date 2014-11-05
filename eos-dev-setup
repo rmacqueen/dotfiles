@@ -5,7 +5,7 @@ cd ~
 apt-get update
 apt-get install eos-dev
 
-wget http://c758482.r82.cf2.rackcdn.com/sublime-text_build-3059_i386.deb
+wget http://c758482.r82.cf2.rackcdn.com/sublime-text_build-3065_i386.deb
 
 dpkg -i sublime-text_build-3059_i386.deb
 
@@ -36,7 +36,8 @@ apt-get install python-skimage
 apt-get install python-polib
 apt-get install python-bs4
 apt-get install eos-sdk-bin
-apt-get install libclutter-1.0-dev 
+apt-get install libclutter-1.0-dev
+apt-get install libxapian-dev
 apt-get build-dep eos-knowledge-lib
 apt-get build-dep eos-theme
 apt-get build-dep eos-sdk-0-dev

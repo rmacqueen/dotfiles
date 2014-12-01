@@ -12,6 +12,8 @@ dpkg -i sublime-text_build-3059_i386.deb
 ## ZSH ##
 curl -L http://install.ohmyz.sh | sh
 chsh -s `which zsh`
+# Logout and log back in
+source ~/.zshrc
 
 
 ### JHBUILD ###
@@ -27,23 +29,6 @@ make install
 ###
 ### GET DEPENDENCIES ###
 
-apt-get install eos-knowledge-build
-apt-get install eos-sdk
-apt-get install npm
-apt-get install python-numpy
-apt-get install python-scipy
-apt-get install python-skimage
-apt-get install python-polib
-apt-get install python-bs4
-apt-get install eos-sdk-bin
-apt-get install libclutter-1.0-dev
-apt-get install libxapian-dev
-apt-get build-dep eos-knowledge-lib
-apt-get build-dep eos-theme
-apt-get build-dep eos-sdk-0-dev
-apt-get build-dep eos-encyclopedia
-apt-get build-dep eos-metrics
-apt-get build-dep eos-knowledge-engine
-
+jhbuild sysdeps --install
 jhbuild build
 

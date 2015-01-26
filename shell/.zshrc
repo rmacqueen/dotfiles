@@ -121,6 +121,7 @@ alias ekb='cd ~/checkout/eos-knowledge-db-build'
 alias eka='cd ~/checkout/eos-knowledge-apps'
 alias xb='cd ~/checkout/xapian-bridge'
 alias xglib='cd ~/checkout/xapian-glib'
+alias pan='cd ~/checkout/eos-pantheon-tools'
 
 # ssh connections
 alias knowledge-build='ssh devs@knowledge-build'
@@ -128,6 +129,10 @@ alias jenkins='ssh ci -L 8080:localhost:8080'
 alias elastic='ssh elastic@10.0.1.16 -L 9200:localhost:9200'
 alias markin='ssh endlesss@endless.kollective.it -L 9200:localhost:9200'
 alias aws='ssh -i ~/AWS_keys/rory_key.pem ubuntu@54.88.124.154'
+
+# git
+alias mas='git checkout master'
+alias pull='git pull'
 
 # debian
 alias dquilt="quilt --quiltrc=${HOME}/.quiltrc-dpkg"

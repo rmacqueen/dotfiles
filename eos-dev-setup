@@ -26,9 +26,10 @@ make
 make install
 
 ### Now run ./link inside the dotfiles directory
+source ~/.zshrc
 ###
 ### GET DEPENDENCIES ###
-
+apt-file update
 jhbuild sysdeps --install
 jhbuild build
 

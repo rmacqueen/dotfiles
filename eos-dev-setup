@@ -28,6 +28,7 @@ make install
 ### Now run ./link inside the dotfiles directory
 source ~/.zshrc
 ###
+# Create new SSH key and add it to github account
 ### GET DEPENDENCIES ###
 apt-file update
 jhbuild sysdeps --install

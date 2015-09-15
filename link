@@ -6,4 +6,5 @@ ln -sfT ${SCRIPT_DIR}/git/.gitignore ~/.gitignore
 ln -sfT ${SCRIPT_DIR}/git/.git_template ~/.git_template
 ln -sfT ${SCRIPT_DIR}/endless/.jhbuildrc ~/.jhbuildrc
 ln -sfT ${SCRIPT_DIR}/shell/.zshrc ~/.zshrc
+rm -rf ~/.config/sublime-text-3/Packages/User
 ln -sfT ${SCRIPT_DIR}/subl ~/.config/sublime-text-3/Packages/User

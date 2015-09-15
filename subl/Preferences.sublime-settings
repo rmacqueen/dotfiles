@@ -73,6 +73,6 @@
   "scroll_past_end": false,
   "spell_check": true,
   "tab_size": 2,
-  "theme": "Flatland Dark.sublime-theme",
-  "translate_tabs_to_spaces": true
+  "translate_tabs_to_spaces": true,
+  "rulers": [80],
 }

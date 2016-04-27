@@ -34,3 +34,7 @@ apt-file update
 jhbuild sysdeps --install
 jhbuild build
 
+### Set up commit hooks ###
+git clone http://github.com/endlessm/eos-dev-config
+cp eos-dev-config/usrshare/eos-dev-config/template/hooks/commit-msg ~/.git_template/hooks/commit-msg
+./eos-dev-config/usrbin/add-commit-hook -a eos-*

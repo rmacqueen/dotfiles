@@ -1,19 +1,20 @@
-#!/bin/bash
+#!/bin/bash -e
 
-# move this script to the .git/hooks directory for your repo. or to a global
-# git template directory. make sure to chmod +x this file
+# Move this script to the .git/hooks directory for your repo, or to a global
+# git template directory. Make sure to chmod +x this file.
 
-branch=`git rev-parse --abbrev-ref HEAD`
+branch=$(git rev-parse --abbrev-ref HEAD)
 
-for repo in "sdk" "shell"; do
-    if [[ $branch == $repo/* ]]; then
-        number=`echo $branch | awk -F/ '{print $2}'`
-        link="[endlessm/eos-$repo#$number]"
-        grep -Fq "$link" $1 || {
-            echo "issue link: $link"
-            echo $link >> $1
-        }
-    fi
-done
+if [[ $branch == T* ]] || [[ $branch == debian-T* ]]; then
+    number=${branch//debian-/}
+    link="https://phabricator.endlessm.com/$number"
+    # If commit message is empty, then git will want to abort.
+    # Comments don't count.
+    if ! grep --quiet '^[^#].*\w' $1; then exit 0; fi
+    grep --fixed-strings --quiet "$link" $1 || {
+        echo "task link: $link"
+        echo $link >> $1
+    }
+fi
 
 exit 0

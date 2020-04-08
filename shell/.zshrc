@@ -1,6 +1,5 @@
 # Path to your oh-my-zsh configuration.
 ZSH=$HOME/.oh-my-zsh
-ZSH_SCRIPT_DIR=$(dirname $(readlink -f ${HOME}/.zshrc))
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -33,14 +32,12 @@ DISABLE_CORRECTION="true"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 plugins=(github)
 
-export PATH=$PATH:/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:$HOME/.bin
+
+export PATH=$PATH:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$HOME/.bin:$HOME/bin:/usr/local/opt/python/libexec/bin:$HOME/go/bin:$HOME/Library/Python/2.7/bin
 
 source $ZSH/oh-my-zsh.sh
 
-# for gnome jhbuild
-if [ -d "$HOME/.local/bin" ] ; then
-    PATH="$PATH:$HOME/.local/bin"
-fi
+source ~/.profile
 
 #git uses sublime
 export EDITOR="subl -w"
@@ -48,12 +45,9 @@ export EDITOR="subl -w"
 # resume downloads if dc'd
 alias wget='wget -c'
 alias chrome='google-chrome'
-alias files='xdg-open .'
-alias term='gnome-terminal'
 alias gdb='gdb -q -ex r'
 
 # some more ls aliases
-alias l='ls'
 alias la='ls -A'
 alias ll='ls -Alh'
 alias lt='ls -Alhtr'
@@ -62,35 +56,12 @@ alias lt='ls -Alhtr'
 autoload -U zmv
 alias mmv='noglob zmv -W'
 
-alias sl='sl'
-
 # sudo uses aliases
 # alias sudo='sudo '
 
-function say() {
-    if which cowsay >/dev/null; then
-        cowfile=`ls /usr/share/cowsay/cows | sort -R | tail -1`
-        cowsay -f $cowfile "$@"
-        # cowsay -f head-in -e "><" "$@" | cowthink -n -f dragon-and-cow -e "OO" | cowthink -n -s -f bong
-    else
-        echo $@
-    fi
-}
+export GOPATH="$HOME/gocode"
 
-alias fortune='wget -O - -q http://www.iheartquotes.com/api/v1/random\?max_characters=300 | sed "s/&quot;/\"/g" | sed -e "s!http[s]\?://\S*!!g"'
-alias quote='say `fortune`'
-alias bored='while :; do quote && sleep 4; done'
-alias lol='say lol'
-alias yo='say yo-yo'
-alias hey='say oh hai'
-alias fart='say pffttbbttbt'
-
-# apt crap
-alias install='sudo apt-get install'
-alias remove='sudo apt-get remove'
-alias update='sudo apt-get update'
-alias upgrade='sudo apt-get update && sudo apt-get dist-upgrade'
-alias search='apt-cache search'
+[[ -s $HOME/.nvm/nvm.sh ]] && . $HOME/.nvm/nvm.sh
 
 # more dots
 alias ..='cd ..'
@@ -102,82 +73,25 @@ alias size='command du -sh'
 
 alias shutdown='quote && sudo shutdown -h now'
 alias reboot='sudo shutdown -r now'
-alias logout='gnome-session-quit'
 
 alias zedit='subl ~/.zshrc'
 alias zup='source ~/.zshrc'
 
 # cd commands for the stuff i'm currently working on
-alias sdk='cd ~/checkout/eos-sdk'
-alias prog='cd ~/checkout/eos-programming'
-alias build='cd ~/checkout/eos-obs-build'
-alias photo='cd ~/checkout/eos-photos'
-alias gtk='cd ~/checkout/gtk'
-alias theme='cd ~/checkout/eos-theme'
-alias shell='cd ~/checkout/eos-shell'
-alias ekn='cd ~/checkout/eos-knowledge-engine'
-alias ekl='cd ~/checkout/eos-knowledge-lib'
-alias ekb='cd ~/checkout/eos-knowledge-db-build'
-alias eka='cd ~/checkout/eos-knowledge-apps'
-alias xb='cd ~/checkout/xapian-bridge'
-alias xglib='cd ~/checkout/xapian-glib'
-alias pan='cd ~/checkout/eos-pantheon-tools'
+alias rd='cd ~/checkout/rd'
 
 # ssh connections
-alias knowledge-build='ssh devs@knowledge-build'
-alias jenkins='ssh ci -L 8080:localhost:8080'
-alias elastic='ssh elastic@10.0.1.16 -L 9200:localhost:9200'
-alias markin='ssh endlesss@endless.kollective.it -L 9200:localhost:9200'
 
 # git
 alias mas='git checkout master'
 alias pull='git pull'
+alias masp='mas && pull'
+alias gg='git grep -Ii'
+alias s='git status'
+alias l='git log'
+alias co='git rebase --continue'
+alias af='arc diff -m "fix"'
 
-# debian
-alias dquilt="quilt --quiltrc=${HOME}/.quiltrc-dpkg"
-
-# gsettings
-alias draw-desktop="gsettings set org.gnome.desktop.background show-desktop-icons"
-alias caps-is-control="gsettings set org.gnome.desktop.input-sources xkb-options \"['ctrl:nocaps']\""
-
-# sublime projects
-alias update-sublime-projects="python ${ZSH_SCRIPT_DIR}/update_projects.py"
-
-function burn-image() {
-    sudo true # grab sudo rights first or its hard to see under the curl output
-    curl $1 | tee ~/images/$(basename $1) | gunzip -c | sudo dd of=/dev/mmcblk0 bs=8M conv=sparse oflag=sync
-}
-
-function deb-extract() {
-    mkdir -p $2
-    dpkg-deb -x $1 $2
-    dpkg-deb --control $1 $2/DEBIAN
-}
-
-function deb-build() {
-    dpkg -b $1 $2
-}
-
-# run command for different directories
-function r() {
-    if ! git rev-parse --git-dir > /dev/null 2>&1; then
-        say "No git no dice"
-        return
-    fi
-    local repodir=$(git rev-parse --show-toplevel)
-    local reponame="$(basename $repodir)"
-    if [ "$reponame" = "eos-knowledge-apps" ]; then
-        jhbuild run eos-thrones
-    elif [ "$reponame" = "eos-knowledge-lib" ]; then
-        jhbuild run gjs $repodir/tests/smoke-tests/homePageBSmokeTest.js
-    elif [ "$reponame" = "eos-resume" ]; then
-        jhbuild run gjs $repodir/resume-app.js
-    else
-        jhbuild run $reponame
-    fi
-}
-alias m='jhbuild make'
-alias mr='m && r'
 
 # pipe to grep
 alias -g '@'="| command grep"
@@ -191,32 +105,6 @@ alias clip="xclip -sel clip"
 function chpwd() {
     emulate -LR zsh
     ls
-}
-
-function remote-debug()
-{
-    gnome_session=$(command pgrep -u $USER gnome-session)
-    eval export $(sed 's/\o000/\n/g;' < /proc/$gnome_session/environ | command grep DISPLAY)
-    eval export $(sed 's/\o000/\n/g;' < /proc/$gnome_session/environ | command grep XAUTHORITY)
-    eval export $(sed 's/\o000/\n/g;' < /proc/$gnome_session/environ | command grep DBUS_SESSION_BUS_ADDRESS)
-}
-
-function stop-ekn()
-{
-    sudo systemctl stop xapian-bridge.service
-    sudo systemctl stop xapian-bridge.socket
-    sudo systemctl stop eos-knowledge-engine.service
-    sudo systemctl stop eos-knowledge-engine.socket
-}
-
-function jhbuild-knowledge-engine()
-{
-    sudo systemctl stop xapian-bridge.service
-    sudo systemctl stop xapian-bridge.socket
-    jhbuild run xapian-bridge &
-    sudo systemctl stop eos-knowledge-engine.service
-    sudo systemctl stop eos-knowledge-engine.socket
-    jhbuild run node $HOME/checkout/eos-knowledge-engine/server.js
 }
 
 # quick clone
@@ -297,27 +185,6 @@ if [ $GIT_MODE ]; then
     alias_git_mode
 fi
 
-function j()
-{
-    if [[ -z $UNDER_JHBUILD ]]; then
-        jhbuild shell
-    else
-        exit
-    fi
-}
-
-# dir shortcuts
-c() { cd ~/checkout/$1; }
-_c() { _files -W ~/checkout -/; }
-compdef _c c
-
-i() { cd ~/install/$1; }
-_i() { _files -W ~/install -/; }
-compdef _i i
-
-h() { cd ~/$1; }
-_h() { _files -W ~/ -/; }
-compdef _h h
 
 # TODO
 # intergrate with hub
@@ -327,3 +194,14 @@ compdef _h h
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
+brew analytics off 2>&1 >/dev/null
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
+
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+
+export PATH="$HOME/.yarn/bin:$PATH"
+export PATH="$HOME/Library/Android/sdk/platform-tools:$HOME/Library/Android/sdk/tools:$PATH"
+
+export PATH="/usr/local/opt/openssl/bin:$PATH"
